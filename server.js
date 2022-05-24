@@ -17,4 +17,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Hardware Store Application." });
 });
 
+require("./app/routes/products.routes")(app);
+
 module.exports = app;
