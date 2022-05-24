@@ -5,5 +5,5 @@ module.exports = (app) => {
 
     router.get("/", products.findAll);
 
-    app.use("/api/products", router);
+    app.use("/v1/api/products", router);
 };
