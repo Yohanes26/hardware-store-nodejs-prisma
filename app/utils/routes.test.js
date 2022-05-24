@@ -12,21 +12,21 @@ describe("Test findAll endpoint", () => {
     const res = await request(app).get("/api/products");
 
     expect(res.statusCode).toEqual(200);
-
     expect(res.body).toHaveProperty("data");
     expect(res.body).toHaveProperty("pagination");
-
     expect(size(res.body.data)).toEqual(10);
   });
 
   it("Should get all products paginated with varying size", async () => {
     let res = await request(app).get("/api/products?size=5");
+
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty("data");
     expect(res.body).toHaveProperty("pagination");
     expect(size(res.body.data)).toEqual(5);
 
     res = await request(app).get("/api/products?size=20");
+
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty("data");
     expect(res.body).toHaveProperty("pagination");
